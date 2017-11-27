@@ -1,9 +1,13 @@
 package br.edu.iff.pooa20172.listviewexemplo;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,6 +26,19 @@ public class Principal extends AppCompatActivity {
         lista.setAdapter(adapter);
 
         lista.setAdapter(adapter);
+
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView,
+                                    View view, int i, long l) {
+                Toast.makeText(getBaseContext(), "Escola: "+escolas.get(i).getNome(),
+                        Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(Principal.this, Main2Activity.class);
+                intent.putExtra("nome", escolas.get(i).getNome());
+                startActivity(intent);
+            }
+        });
     }
 
     private ArrayList<Escola> adicionarEscolas() {
