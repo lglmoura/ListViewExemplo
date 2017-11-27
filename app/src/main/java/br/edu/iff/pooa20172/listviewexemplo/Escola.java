@@ -10,7 +10,7 @@ public class Escola {
     private int imagem; // vai armazenar o identificador do recurso
     private String endereco;
 
-    public Escola(String nome, int imagem, String endereco) {
+    public Escola(String nome,  String endereco,int imagem) {
         this.nome = nome;
         this.imagem = imagem;
         this.endereco = endereco;
